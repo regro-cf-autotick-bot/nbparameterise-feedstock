@@ -1,5 +1,5 @@
 {% set name = "nbparameterise" %}
-{% set version = "0.4" %}
+{% set version = "0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,22 +7,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c0fcf0db7f47b2e1481a5a3eef444269e32835ca8614cde4b0e69a391a8cd681
+  sha256: bbdc59c1a3af4071479d34b184374874ae937256cb72be54ecf4f73494355dd4
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.8
     - pip
-    - flit
+    - flit-core >=3.2,<4
   run:
-    - python >=3.6
+    - python >=3.8
     - nbconvert
-    - astsearch
+    - astcheck >=0.3
 
 test:
   imports:
@@ -33,7 +33,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'This is a tool to run notebooks with input values.'
+  summary: This is a tool to run notebooks with input values.
   doc_url: https://github.com/takluyver/nbparameterise
   dev_url: https://github.com/takluyver/nbparameterise
 
