@@ -1,5 +1,5 @@
 {% set name = "nbparameterise" %}
-{% set version = "0.6" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bbdc59c1a3af4071479d34b184374874ae937256cb72be54ecf4f73494355dd4
+  sha256: 1b138747635231489844cded4d80ae3eb8b4c41e566242ab310b55e88c2a2a27
 
 build:
   noarch: python
