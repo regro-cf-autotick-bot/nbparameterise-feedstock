@@ -6,25 +6,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: bbdc59c1a3af4071479d34b184374874ae937256cb72be54ecf4f73494355dd4
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - flit-core >=3.2,<4
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - nbconvert
     - astcheck >=0.3
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - nbparameterise
 
